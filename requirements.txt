@@ -1,0 +1,7 @@
+Django==4.2
+opencv-python
+numpy
+tensorflow
+flask-socketio  # For real-time updates
+django-crispy-forms  # For better forms in UI
+Pillow  # For image handling

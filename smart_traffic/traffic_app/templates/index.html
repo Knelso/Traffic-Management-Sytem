@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Traffic Management</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Smart Traffic Management System</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="traffic_image">Upload Traffic Image:</label>
+            <input type="file" id="traffic_image" name="traffic_image" required>
+            <button type="submit">Process</button>
+        </form>
+
+        {% if car_count %}
+        <div class="results">
+            <h2>Traffic Analysis Results</h2>
+            <p><strong>Cars Detected:</strong> {{ car_count }}</p>
+            <img src="{{ detected_image }}" alt="Detected Cars">
+            <p><strong>Traffic Signal Status:</strong> {{ signal_status }}</p>
+            <p><strong>Recommendation:</strong> {{ recommendation }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
